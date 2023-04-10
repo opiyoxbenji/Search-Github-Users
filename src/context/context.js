@@ -9,8 +9,12 @@ const rootUrl = 'https://api.github.com';
 const GithubContext = React.createContext(); // gives access to Provider & Consumer
 
 const GithubProvider = ({ children }) => {
+	const [githubUser, setGithhubUser] = useState(mockUser);
+	const [repos, setRepos] = useState(mockRepos);
+	const [followers, setFollowers] = useState(mockFollowers);
+
 	return (
-		<GithubContext.Provider value={'hello'}>
+		<GithubContext.Provider value={{ githubUser, repos, followers }}>
 			{children}
 		</GithubContext.Provider>
 	);
